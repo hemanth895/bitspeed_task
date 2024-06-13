@@ -1,5 +1,4 @@
-
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { pool } from './database/db';
@@ -17,7 +16,7 @@ app.use(bodyParser.json());
 setupRoutes(app);
 
 // Error handling middleware
-app.use((err: Error, req: Request, res: Response) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
   res.status(500).send('Internal Server Error');
 });
