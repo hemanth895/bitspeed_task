@@ -5,10 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "init-db": "npx ts-node src/database/init.ts",
-    "start":"npx ts-node src/index.ts",
-    "start-prod": "npm run init-db && npx ts-node src/index.ts",
-    "build": "npx tsc --project tsconfig.json",  
-    "build:ts-node": "npx ts-node src/index.ts", 
+    "start": "npx ts-node src/index.ts",
+    "start-prod": "npm run init-db && npm run start",
+    "build": "npx tsc --project tsconfig.json",
+    "build:ts-node": "npx ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
