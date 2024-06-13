@@ -4,10 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start":"npx ts-node src/index.ts",
-   "build": "npx tsc --project tsconfig.json",  
+    "init-db": "npx ts-node src/database/init.ts",
+    "start": "npm run init-db && npx ts-node src/index.ts",
+    "build": "npx tsc --project tsconfig.json",  
     "build:ts-node": "npx ts-node src/index.ts", 
-     "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
