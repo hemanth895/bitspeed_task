@@ -1,0 +1,29 @@
+# Dependency directories
+node_modules/
+
+# TypeScript build output
+dist/
+
+# IDE/Editor specific files
+.vscode/
+*.code-workspace
+*.sublime-workspace
+*.idea/
+*.iml
+
+# Environment variables
+.env
+
+# macOS files
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Compiled JavaScript files (if you compile TypeScript to JavaScript)
+*.js
