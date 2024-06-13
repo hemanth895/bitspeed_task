@@ -1,14 +1,16 @@
 import { pool } from './db';
 
 const createContactTable = `
-  CREATE TABLE IF NOT EXISTS Contact (
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(255) UNIQUE,
-    phoneNumber VARCHAR(50) UNIQUE,
-    linkPrecedence VARCHAR(50) NOT NULL,
-    linkedId INTEGER,
-    FOREIGN KEY (linkedId) REFERENCES Contact(id)
-  );
+ CREATE TABLE IF NOT EXISTS Contact (
+  id SERIAL PRIMARY KEY,
+  phoneNumber VARCHAR(50),
+  email VARCHAR(255),
+  linkedId INTEGER REFERENCES Contact(id),
+  linkPrecedence VARCHAR(50) NOT NULL CHECK (linkPrecedence IN ('primary', 'secondary')),
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deletedAt TIMESTAMP
+);
 `;
 
 async function initializeDatabase() {
